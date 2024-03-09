@@ -39,6 +39,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
     marginTop: 10,
+    textAlign: 'center', // Metni merkeze hizalama
   },
   date: {
     fontSize: 14,

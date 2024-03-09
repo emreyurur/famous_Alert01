@@ -1,43 +1,90 @@
 import React from 'react';
-import { ScrollView, StyleSheet } from 'react-native';
-import { ImageSourcePropType } from 'react-native';
+import { FlatList, View, Text, StyleSheet, Dimensions } from 'react-native';
 import NFTCard from '../components/NFTCard';
-interface NFT {
-  id: number;
-  title: string;
-  imageSource: ImageSourcePropType;
-  mintDate: string;
-}
 
-const nftData: NFT[] = [
+const { width } = Dimensions.get('window');
+
+const nftData = [
   {
     id: 1,
-    title: 'Gizemli Dağ',
-    imageSource: require('../assets/nft1.jpg'), // Yerel dosya yolu, gerçek yolu projenize göre ayarlayın
+    title: 'Collesium',
+    imageSource: require('../assets/nft1.jpg'),
     mintDate: '2023-03-01',
   },
   {
     id: 2,
-    title: 'Uzay Yolculuğu',
-    imageSource: require('../assets/nft2.jpg'), // Yerel dosya yolu, gerçek yolu projenize göre ayarlayın
-    mintDate: '2023-03-02',
+    title: 'Collesium4',
+    imageSource: require('../assets/nft2.jpg'),
+    mintDate: '2023-03-01',
   },
+  {
+    id: 3,
+    title: 'Collesium3',
+    imageSource: require('../assets/nft1.jpg'),
+    mintDate: '2023-03-01',
+  },
+  {
+    id: 4,
+    title: 'Collesium2',
+    imageSource: require('../assets/nft3.jpg'),
+    mintDate: '2023-03-01',
+  },
+  {
+    id: 5,
+    title: 'Collesium3',
+    imageSource: require('../assets/nft4.jpg'),
+    mintDate: '2023-03-01',
+  },
+  {
+    id: 6,
+    title: 'Collesium4',
+    imageSource: require('../assets/nft1.jpg'),
+    mintDate: '2023-03-01',
+  },
+  
 ];
 
-const NFTScreen: React.FC = () => {
+const NFTScreen = () => {
   return (
-    <ScrollView style={styles.container}>
-      {nftData.map((nft) => (
-        <NFTCard key={nft.id} title={nft.title} imageSource={nft.imageSource} mintDate={nft.mintDate} />
-      ))}
-    </ScrollView>
+    <View style={styles.container}>
+      <Text style={styles.header}>NFT Collection</Text>
+      <FlatList
+        data={nftData}
+        renderItem={({ item }) => (
+          <NFTCard
+            title={item.title}
+            imageSource={item.imageSource}
+            mintDate={item.mintDate}
+          />
+        )}
+        // İki sütunlu bir layout için numColumns prop'unu kullanın
+        numColumns={2}
+        keyExtractor={(item) => item.id.toString()}
+        // FlatList içerisindeki öğeler arasında boşluk bırakmak için contentContainerStyle kullanılabilir
+        contentContainerStyle={styles.listContentContainer}
+      />
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 20,
+    paddingTop: 50,
+    paddingHorizontal: 10, // Ekranın kenarlarına biraz boşluk ekleyin
+  },
+  header: {
+    fontSize: 28, // Font boyutunu artırın
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginBottom: 20,
+    color: '#333', // Başlık rengi
+    textShadowColor: 'rgba(0, 0, 0, 0.75)', // Metin gölgesi
+    textShadowOffset: { width: -1, height: 1 },
+    textShadowRadius: 10,
+  },
+  listContentContainer: {
+    alignItems: 'center', // Öğeleri merkeze almak için
   },
 });
 
