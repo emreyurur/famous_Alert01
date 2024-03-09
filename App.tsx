@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator, NativeStackScreenProps } from '@react-navigation/native-stack';
@@ -28,27 +29,18 @@ const App: React.FC = () => {
  *
  * @format
  */
+=======
+import React from "react";
+import {Text,View } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+>>>>>>> e9296ad (Uygulama build edildi paketler yüklendi.)
 
-import React from 'react';
-import type {PropsWithChildren} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+const Stack=createNativeStackNavigator();
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+import WelcomeScreen from "./src/screens/WelcomeScreen";
 
+<<<<<<< HEAD
 type SectionProps = PropsWithChildren<{
   title: string;
 }>;
@@ -141,3 +133,14 @@ const styles = StyleSheet.create({
 >>>>>>> eb9b6a0 (Paketler yüklendi ve uygulama build edildi.)
 
 export default App;
+=======
+const App=()=>{
+  return(
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="WelcomeScreen" component={WelcomeScreen}/>
+      </Stack.Navigator>
+    </NavigationContainer>
+  )
+}
+>>>>>>> e9296ad (Uygulama build edildi paketler yüklendi.)
