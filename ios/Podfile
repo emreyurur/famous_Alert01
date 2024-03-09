@@ -25,7 +25,11 @@ if linkage != nil
   use_frameworks! :linkage => linkage.to_sym
 end
 
+<<<<<<< HEAD
 target 'famousAlert_01' do
+=======
+target 'famous_alert01' do
+>>>>>>> eb9b6a0 (Paketler yüklendi ve uygulama build edildi.)
   config = use_native_modules!
 
   use_react_native!(
@@ -39,7 +43,11 @@ target 'famousAlert_01' do
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
 
+<<<<<<< HEAD
   target 'famousAlert_01Tests' do
+=======
+  target 'famous_alert01Tests' do
+>>>>>>> eb9b6a0 (Paketler yüklendi ve uygulama build edildi.)
     inherit! :complete
     # Pods for testing
   end

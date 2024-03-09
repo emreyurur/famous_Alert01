@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 rootProject.name = 'famousAlert_01'
+=======
+rootProject.name = 'famous_alert01'
+>>>>>>> eb9b6a0 (Paketler yüklendi ve uygulama build edildi.)
 apply from: file("../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesSettingsGradle(settings)
 include ':app'
 includeBuild('../node_modules/@react-native/gradle-plugin')

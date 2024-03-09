@@ -74,9 +74,15 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdk rootProject.ext.compileSdkVersion
 
+<<<<<<< HEAD
     namespace "com.famousalert_01"
     defaultConfig {
         applicationId "com.famousalert_01"
+=======
+    namespace "com.famous_alert01"
+    defaultConfig {
+        applicationId "com.famous_alert01"
+>>>>>>> eb9b6a0 (Paketler yüklendi ve uygulama build edildi.)
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

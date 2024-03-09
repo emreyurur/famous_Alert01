@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "name": "famousAlert_01",
+=======
+  "name": "famous_alert01",
+>>>>>>> eb9b6a0 (Paketler yüklendi ve uygulama build edildi.)
   "version": "0.0.1",
   "private": true,
   "scripts": {

@@ -1,3 +1,7 @@
 <resources>
+<<<<<<< HEAD
     <string name="app_name">famousAlert_01</string>
+=======
+    <string name="app_name">famous_alert01</string>
+>>>>>>> eb9b6a0 (Paketler yüklendi ve uygulama build edildi.)
 </resources>
