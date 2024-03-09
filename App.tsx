@@ -1,4 +1,5 @@
 import React from "react";
+<<<<<<< HEAD
 import { SafeAreaView, View, Text } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -42,3 +43,22 @@ const App = () => {
 };
 
 export default App;
+=======
+import {Text,View } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
+const Stack=createNativeStackNavigator();
+
+import WelcomeScreen from "./src/screens/WelcomeScreen";
+
+const App=()=>{
+  return(
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="WelcomeScreen" component={WelcomeScreen}/>
+      </Stack.Navigator>
+    </NavigationContainer>
+  )
+}
+>>>>>>> e9296ad310be0f4aa50757fcc05c9c2c933cb971

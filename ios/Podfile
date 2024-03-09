@@ -25,7 +25,11 @@ if linkage != nil
   use_frameworks! :linkage => linkage.to_sym
 end
 
+<<<<<<< HEAD
 target 'famousAlert_01' do
+=======
+target 'famous_alert01' do
+>>>>>>> e9296ad310be0f4aa50757fcc05c9c2c933cb971
   config = use_native_modules!
 
   use_react_native!(
@@ -39,7 +43,11 @@ target 'famousAlert_01' do
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
 
+<<<<<<< HEAD
   target 'famousAlert_01Tests' do
+=======
+  target 'famous_alert01Tests' do
+>>>>>>> e9296ad310be0f4aa50757fcc05c9c2c933cb971
     inherit! :complete
     # Pods for testing
   end
