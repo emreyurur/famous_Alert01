@@ -1,40 +1,61 @@
 import React from "react";
-import { TouchableOpacity, View, Text, StyleSheet } from "react-native";
+import { View, Text, Image, TouchableOpacity, StyleSheet } from "react-native";
 
-interface CategoryButtonProps {
-    title: string;
-    onPress: () => void;
+interface FamousCardProps {
+  name: string;
+  profession: string;
+  imageSource: any;
+  onPress: () => void;
+  instagramUrl: string;
+  twitterUrl: string;
+  messageUrl: string;
 }
 
-const CategoryButton: React.FC<CategoryButtonProps> = ({ title, onPress }) => {
-    return (
-        <TouchableOpacity style={styles.buttonContainer} onPress={onPress}>
-            <View style={styles.buttonContent}>
-                <Text style={styles.buttonText}>{title}</Text>
-            </View>
-        </TouchableOpacity>
-    );
+const FamousCard: React.FC<FamousCardProps> = ({
+  name,
+  profession,
+  imageSource,
+  onPress,
+  instagramUrl,
+  twitterUrl,
+  messageUrl,
+}) => {
+  return (
+    <TouchableOpacity style={styles.cardContainer} onPress={onPress}>
+      <Image source={imageSource} style={styles.image} />
+      <View style={styles.textContainer}>
+        <Text style={styles.name}>{name}</Text>
+        <Text style={styles.profession}>{profession}</Text>
+      </View>
+    </TouchableOpacity>
+  );
 };
 
 const styles = StyleSheet.create({
-    buttonContainer: {
-        backgroundColor: "blue",
-        paddingVertical: 12,
-        paddingHorizontal: 24,
-        borderRadius: 100,
-        marginVertical: 8,
-    },
-    buttonContent: {
-        flexDirection: "row",
-        alignItems: "center",
-        justifyContent: "center",
-    },
-    buttonText: {
-        color: "#fff",
-        fontSize: 18,
-        fontWeight: "bold",
-        textAlign: "center",
-    },
+  cardContainer: {
+    backgroundColor: "#fff",
+    borderRadius: 10,
+    padding: 10,
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  image: {
+    width: 80,
+    height: 80,
+    borderRadius: 40,
+    marginRight: 10,
+  },
+  textContainer: {
+    flex: 1,
+  },
+  name: {
+    fontSize: 18,
+    fontWeight: "bold",
+  },
+  profession: {
+    fontSize: 16,
+    color: "#666",
+  },
 });
 
-export default CategoryButton;
+export default FamousCard;
