@@ -1,68 +1,135 @@
-import React from 'react';
-import { FlatList, View, Text, StyleSheet, Dimensions } from 'react-native';
-import NFTCard from '../components/NFTCard';
+import React, { useState } from "react";
+import { View, FlatList, StyleSheet, Text, Linking, Image, TouchableOpacity, Alert } from "react-native";
+import FamousCard from "../components/FamousCard";
 
-const { width } = Dimensions.get('window');
+interface Athlete {
+  id: number;
+  name: string;
+  profession: string;
+  imageSource: any;
+  instagramUrl?: string;
+  twitterUrl?: string;
+  messageUrl?: string; // Make messageUrl optional to avoid errors
+}
 
-const nftData = [
+const athletes: Athlete[] = [
   {
     id: 1,
-    title: 'Collesium',
-    imageSource: require('../assets/nft1.jpg'),
-    mintDate: '2023-03-01',
+    name: "Mete Gazoz",
+    profession: "Milli Okçu",
+    imageSource: require("../../assets/metegazoz.jpg"),
+    instagramUrl: "https://www.instagram.com/mauroicardi/",
+    twitterUrl: "https://twitter.com/MauroIcardi",
+    messageUrl: "IcardiMessageScreen", // Assuming this should navigate to the Icardi message screen
   },
   {
     id: 2,
-    title: 'Collesium4',
-    imageSource: require('../assets/nft2.jpg'),
-    mintDate: '2023-03-01',
+    name: "Fatih Terim",
+    profession: "Teknik Direktör",
+    imageSource: require("../../assets/fatihterim.jpg"),
+    instagramUrl: "https://www.instagram.com/fatihterim/",
+    twitterUrl: "https://twitter.com/fatihterim",
+    messageUrl: "IcardiMessageScreen"
   },
   {
     id: 3,
-    title: 'Collesium3',
-    imageSource: require('../assets/nft1.jpg'),
-    mintDate: '2023-03-01',
+    name: "Fernando Muslera",
+    profession: "Futbolcu",
+    imageSource: require("../../assets/muslera.jpg"),
+    instagramUrl: "https://www.instagram.com/fernandomuslera1/",
+    twitterUrl: "https://twitter.com/fernandomuslera",
+    messageUrl: "IcardiMessageScreen"
   },
   {
     id: 4,
-    title: 'Collesium2',
-    imageSource: require('../assets/nft3.jpg'),
-    mintDate: '2023-03-01',
+    name: "Zehra Güneş",
+    profession: "Milli Voleybolcu",
+    imageSource: require("../../assets/zehragunes.jpg"),
+    instagramUrl: "https://www.instagram.com/mauroicardi/",
+    twitterUrl: "https://twitter.com/MauroIcardi",
+    messageUrl: "IcardiMessageScreen", // Assuming this should navigate to the Icardi message screen
   },
   {
     id: 5,
-    title: 'Collesium3',
-    imageSource: require('../assets/nft4.jpg'),
-    mintDate: '2023-03-01',
+    name: "Mauro Icardi",
+    profession: "Futbolcu",
+    imageSource: require("../../assets/icardi.jpg"),
+    instagramUrl: "https://www.instagram.com/mauroicardi/",
+    twitterUrl: "https://twitter.com/MauroIcardi",
+    messageUrl: "IcardiMessageScreen", // Assuming this should navigate to the Icardi message screen
   },
-  {
-    id: 6,
-    title: 'Collesium4',
-    imageSource: require('../assets/nft1.jpg'),
-    mintDate: '2023-03-01',
-  },
-  
 ];
 
-const NFTScreen = () => {
+const TurkeySporScreen: React.FC<{ navigation: any }> = ({ navigation }) => {
+  const [selectedAthlete, setSelectedAthlete] = useState<Athlete | null>(null);
+
+  const handleCardPress = (athlete: Athlete) => {
+    setSelectedAthlete(athlete);
+  };
+
+  const handleInstagramIconPress = (url: string) => {
+    if (url) {
+      Linking.openURL(url);
+    }
+  };
+
+  const handleTwitterIconPress = (url: string) => {
+    if (url) {
+      Linking.openURL(url);
+    }
+  };
+
+  const handleMessageIconPress = () => {
+    // Navigate to the specific message screen if the messageUrl matches
+    if (selectedAthlete?.messageUrl === "IcardiMessageScreen") {
+      navigation.navigate(selectedAthlete.messageUrl);
+    } else if (selectedAthlete?.messageUrl) {
+      Linking.openURL(selectedAthlete.messageUrl);
+    } else {
+      Alert.alert("Message Url not provided");
+    }
+  };
+
+  const renderItem = ({ item }: { item: Athlete }) => (
+    <View style={styles.itemContainer}>
+      <FamousCard
+        name={item.name}
+        profession={item.profession}
+        imageSource={item.imageSource}
+        onPress={() => handleCardPress(item)}
+        instagramUrl={item.instagramUrl || ""}
+        twitterUrl={item.twitterUrl || ""}
+        messageUrl={item.messageUrl || ""}
+      />
+    </View>
+  );
+
   return (
     <View style={styles.container}>
-      <Text style={styles.header}>NFT Collection</Text>
+      <Text style={styles.title}>Türkiye Sporu</Text>
       <FlatList
-        data={nftData}
-        renderItem={({ item }) => (
-          <NFTCard
-            title={item.title}
-            imageSource={item.imageSource}
-            mintDate={item.mintDate}
-          />
-        )}
-        // İki sütunlu bir layout için numColumns prop'unu kullanın
-        numColumns={2}
+        data={athletes}
         keyExtractor={(item) => item.id.toString()}
-        // FlatList içerisindeki öğeler arasında boşluk bırakmak için contentContainerStyle kullanılabilir
-        contentContainerStyle={styles.listContentContainer}
+        renderItem={renderItem}
       />
+      {selectedAthlete && (
+        <View style={styles.selectedAthleteContainer}>
+          <Image style={styles.selectedAthleteImage} source={selectedAthlete.imageSource} />
+          <Text style={styles.selectedAthleteName}>{selectedAthlete.name}</Text>
+          <Text style={styles.selectedAthleteProfession}>{selectedAthlete.profession}</Text>
+          <View style={styles.selectedAthleteIcons}>
+            <TouchableOpacity onPress={() => handleInstagramIconPress(selectedAthlete.instagramUrl || "")}>
+              <Image style={styles.icon} source={require("../../assets/instagram.png")} />
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => handleTwitterIconPress(selectedAthlete.twitterUrl || "")}>
+              <Image style={styles.icon} source={require("../../assets/twitter.png")} />
+            </TouchableOpacity>
+            <TouchableOpacity onPress={handleMessageIconPress}>
+              <Image style={styles.icon} source={require("../../assets/message.png")} />
+            </TouchableOpacity>
+          </View>
+        </View>
+      )}
     </View>
   );
 };
@@ -70,22 +137,49 @@ const NFTScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 50,
-    paddingHorizontal: 10, // Ekranın kenarlarına biraz boşluk ekleyin
+    backgroundColor: "#fff",
+    padding: 10,
   },
-  header: {
-    fontSize: 28, // Font boyutunu artırın
-    fontWeight: 'bold',
-    textAlign: 'center',
+  title: {
+    fontSize: 24,
+    fontWeight: "bold",
+    marginBottom: 10,
+  },
+  itemContainer: {
+    marginBottom: 10,
+  },
+  selectedAthleteContainer: {
+    alignItems: "center",
+    padding: 20,
+    backgroundColor: "#f0f0f0",
+    borderRadius: 10,
+    marginTop: 20,
+  },
+  selectedAthleteImage: {
+    width: 200,
+    height: 200,
+    borderRadius: 100,
+    marginBottom: 10,
+  },
+  selectedAthleteName: {
+    fontSize: 24,
+    fontWeight: "bold",
+    marginBottom: 5,
+  },
+  selectedAthleteProfession: {
+    fontSize: 18,
+    color: "#666",
     marginBottom: 20,
-    color: '#333', // Başlık rengi
-    textShadowColor: 'rgba(0, 0, 0, 0.75)', // Metin gölgesi
-    textShadowOffset: { width: -1, height: 1 },
-    textShadowRadius: 10,
   },
-  listContentContainer: {
-    alignItems: 'center', // Öğeleri merkeze almak için
+  selectedAthleteIcons: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  icon: {
+    width: 40,
+    height: 40,
+    marginLeft: 10,
   },
 });
 
-export default NFTScreen;
+export default TurkeySporScreen;

@@ -11,6 +11,7 @@ import HomeScreen from "./src/screens/HomeScreen";
 import TurkeyScreen from "./src/screens/TurkeyScreen";
 import TurkeySporScreen from "./src/screens/TurkeyCategory/TurkeySporScreen";
 import NFTScreen from "./src/screens/NFTScreen";
+import Message from "./src/components/Message";
 
 import { useWalletConnectModal } from "@walletconnect/modal-react-native";
 
@@ -37,6 +38,7 @@ const App = () => {
         <Stack.Screen name="TurkeyScreen" component={TurkeyScreen} />
         <Stack.Screen name="TurkeySporScreen" component={TurkeySporScreen} />
         <Stack.Screen name="NFTScreen" component={NFTScreen}/>
+        <Stack.Screen name="Message" component={Message}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
