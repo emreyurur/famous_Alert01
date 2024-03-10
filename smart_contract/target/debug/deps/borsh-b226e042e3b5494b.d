@@ -1,0 +1,11 @@
+C:\Users\emree\famousAlert_smart_contract\smart_contract\target\debug\deps\libborsh-b226e042e3b5494b.rmeta: C:\Users\emree\.cargo\registry\src\index.crates.io-6f17d22bba15001f\borsh-0.9.3\src/lib.rs C:\Users\emree\.cargo\registry\src\index.crates.io-6f17d22bba15001f\borsh-0.9.3\src\de\mod.rs C:\Users\emree\.cargo\registry\src\index.crates.io-6f17d22bba15001f\borsh-0.9.3\src\de\hint.rs C:\Users\emree\.cargo\registry\src\index.crates.io-6f17d22bba15001f\borsh-0.9.3\src\schema.rs C:\Users\emree\.cargo\registry\src\index.crates.io-6f17d22bba15001f\borsh-0.9.3\src\schema_helpers.rs C:\Users\emree\.cargo\registry\src\index.crates.io-6f17d22bba15001f\borsh-0.9.3\src\ser\mod.rs C:\Users\emree\.cargo\registry\src\index.crates.io-6f17d22bba15001f\borsh-0.9.3\src\ser\helpers.rs
+
+C:\Users\emree\famousAlert_smart_contract\smart_contract\target\debug\deps\borsh-b226e042e3b5494b.d: C:\Users\emree\.cargo\registry\src\index.crates.io-6f17d22bba15001f\borsh-0.9.3\src/lib.rs C:\Users\emree\.cargo\registry\src\index.crates.io-6f17d22bba15001f\borsh-0.9.3\src\de\mod.rs C:\Users\emree\.cargo\registry\src\index.crates.io-6f17d22bba15001f\borsh-0.9.3\src\de\hint.rs C:\Users\emree\.cargo\registry\src\index.crates.io-6f17d22bba15001f\borsh-0.9.3\src\schema.rs C:\Users\emree\.cargo\registry\src\index.crates.io-6f17d22bba15001f\borsh-0.9.3\src\schema_helpers.rs C:\Users\emree\.cargo\registry\src\index.crates.io-6f17d22bba15001f\borsh-0.9.3\src\ser\mod.rs C:\Users\emree\.cargo\registry\src\index.crates.io-6f17d22bba15001f\borsh-0.9.3\src\ser\helpers.rs
+
+C:\Users\emree\.cargo\registry\src\index.crates.io-6f17d22bba15001f\borsh-0.9.3\src/lib.rs:
+C:\Users\emree\.cargo\registry\src\index.crates.io-6f17d22bba15001f\borsh-0.9.3\src\de\mod.rs:
+C:\Users\emree\.cargo\registry\src\index.crates.io-6f17d22bba15001f\borsh-0.9.3\src\de\hint.rs:
+C:\Users\emree\.cargo\registry\src\index.crates.io-6f17d22bba15001f\borsh-0.9.3\src\schema.rs:
+C:\Users\emree\.cargo\registry\src\index.crates.io-6f17d22bba15001f\borsh-0.9.3\src\schema_helpers.rs:
+C:\Users\emree\.cargo\registry\src\index.crates.io-6f17d22bba15001f\borsh-0.9.3\src\ser\mod.rs:
+C:\Users\emree\.cargo\registry\src\index.crates.io-6f17d22bba15001f\borsh-0.9.3\src\ser\helpers.rs:
